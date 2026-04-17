@@ -1,0 +1,23 @@
+# PacketSentry Docker Compose 配置
+# 使用方式: docker compose run packetsentry analyze /data/capture.pcap
+
+version: "3.8"
+
+services:
+  packetsentry:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: packetsentry:latest
+    container_name: packetsentry
+    volumes:
+      # 将宿主机 PCAP 目录挂载到容器的 /data
+      - ./examples:/data:ro
+    environment:
+      - PACKETSENTRY_CONFIG=/app/config/default.ini
+    # 分析示例 PCAP 文件
+    command: ["analyze", "/data/sample.pcap"]
+    # 实时监控（需要 host 网络模式）
+    # command: ["monitor", "-i", "eth0", "-m", "/data/models/trained"]
+    # 训练模型
+    # command: ["train", "/data/normal_traffic.pcap", "-s", "/data/models/trained"]
