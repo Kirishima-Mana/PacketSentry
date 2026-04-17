@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# 虚拟环境
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 环境变量
+.env
+.env.local
+
+# Docker
+docker-compose.override.yml
+
+# 输出
+reports/
+*.pcap
+!examples/sample.pcap
+
+# 模型文件
+*.pkl
+*.pt
+models/trained/
